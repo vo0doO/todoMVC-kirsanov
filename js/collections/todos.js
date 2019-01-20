@@ -21,6 +21,10 @@ var app = app || {};
 			return this.where({completed: true});
 		},
 
+		priority: function () {
+			return this.where({priority: true});
+		},
+
 		// Filter down the list to only todo items that are still not finished.
 		remaining: function () {
 			return this.where({completed: false});

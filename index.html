@@ -2,51 +2,51 @@
 <html lang="en" data-framework="backbonejs">
 	<head>
 		<meta charset="utf-8">
-		<title>Backbone.js • TodoMVC</title>
+		<title>Список задач Кирсанов</title>
 		<link rel="stylesheet" href="bower_components/todomvc-common/base.css">
 	</head>
 	<body>
 		<section id="todoapp">
 			<header id="header">
-				<h1>todos</h1>
-				<input id="new-todo" placeholder="What needs to be done?" autofocus>
+				<h1>Список задач</h1>
+				<input id="new-todo" placeholder="Что нужно завершить ?" autofocus>
 			</header>
 			<section id="main">
 				<input id="toggle-all" type="checkbox">
-				<label for="toggle-all">Mark all as complete</label>
+				<label for="toggle-all">Отметить все как заверщенные</label>
 				<ul id="todo-list"></ul>
 			</section>
 			<footer id="footer"></footer>
 		</section>
 		<footer id="info">
-			<p>Double-click to edit a todo</p>
-			<p>Written by <a href="https://github.com/addyosmani">Addy Osmani</a></p>
-			<p>Part of <a href="http://todomvc.com">TodoMVC</a></p>
+			<p>Двойной клик для редактирования задачи</p>
+			<p>Написано при участии <a href="https://github.com/addyosmani">Кирсанова Д.О.</a></p>
+			<p>Часть из <a href="http://todomvc.com">TodoMVC</a></p>
 		</footer>
 		<script type="text/template" id="item-template">
 			<div class="view">
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-				<label><%- completed ? title + "--done" : title %></label>
+				<label><button class="priority-btn"></button><%- completed ? title + "--done" : title %></label>
 				<button class="destroy"></button>
 				<button class="edit-btn"></button>
 			</div>
 			<input class="edit" value="<%- title %>">
 		</script>
 		<script type="text/template" id="stats-template">
-			<span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
+			<span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'задач' %> осталось</span>
 			<ul id="filters">
 				<li>
-					<a class="selected" href="#/">All</a>
+					<a class="selected" href="#/">Все</a>
 				</li>
 				<li>
-					<a href="#/active">Active</a>
+					<a href="#/active">Активные</a>
 				</li>
 				<li>
-					<a href="#/completed">Completed</a>
+					<a href="#/completed">Заверщенные</a>
 				</li>
 			</ul>
 			<% if (completed) { %>
-			<button id="clear-completed">Clear completed (<%= completed %>)</button>
+			<button id="clear-completed">Очистить выполненные (<%= completed %>)</button>
 			<% } %>
 		</script>
 		<script src="bower_components/todomvc-common/base.js"></script>
